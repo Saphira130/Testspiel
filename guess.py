@@ -1,19 +1,24 @@
+#!/usr/bin/env python3
+
 import random
 
-myNumber = random.randrange(0, 100, 1)
+my_number = random.randrange(0, 100, 1)
 
-print("Ich habe mir eine Zahl von 0 bis 100 überlegt. Versuche sie zu erraten!")
+print("I thought of a number between 0 and 100. Can you guess it?")
 
 while True:
     try:
-        guessedNumber = int(input())
-        if guessedNumber < myNumber:
-            print("Meine Zahl ist größer.")
-        if guessedNumber > myNumber:
-            print("Meine Zahl ist kleiner.")
-        if guessedNumber == myNumber:
+        guessed_number = int(input())
+        
+    except ValueError:
+        print("Your input has to be a whole number.")
+    
+    else:
+        if guessed_number < my_number:
+            print("My number is bigger.")
+        elif guessed_number > my_number:
+            print("My number is smaller.")
+        else:
             break
-    except:
-        print("Die Eingabe muss eine ganze Zahl sein.")
 
-print("Herzlichen Glückwunsch! Du hast die Zahl erraten!")
+print("Congratulations! You did it!")
